@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    {% block js_footer %}
+        <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+    {% endblock %}
+
+<title>Lab3</title>
+
+<script type="text/javascript">
+  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+
+
+</head>
+<body>
+
+{% block body %} {% endblock %}
+
+
+</body>
+</html>

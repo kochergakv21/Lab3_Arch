@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block body %}
+<h1>Remove</h1>
+  <form id="saveForm" action= '/api/remove/' method="post">
+    <label for="key">Key</label>
+    <input type="text" id="key" size=10/>
+    <input type="submit" value="Save" id="save"/>
+</form>
+<script type=text/javascript>
+        $("#saveForm").submit(function(event){
+            event.preventDefault();
+            var $form = $(this),
+                key = $form.find("input[id='key']").val(),
+                url = $form.attr('action');
+            $.post(url, {'key': key}).done(function(data){
+                $("#result").text(data.result);
+            });
+        });
+</script>
+<p><span id=result></span></p>
+{% endblock %}

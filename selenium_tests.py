@@ -1,0 +1,36 @@
+from selenium import webdriver
+
+driver = webdriver.Firefox()
+driver.get('http://0.0.0.0:5000/add')
+element = driver.find_element_by_id('key')
+element.send_keys('selenium')
+element = driver.find_element_by_id('value')
+element.send_keys('selenium')
+element = driver.find_element_by_id('save')
+element.click()
+element = driver.find_element_by_id('result')
+print element.text
+driver.get('http://0.0.0.0:5000/read')
+element = driver.find_element_by_id('key')
+element.send_keys('selenium')
+element = driver.find_element_by_id('save')
+element.click()
+element = driver.find_element_by_id('result')
+print 'Key value: ', element.text
+driver.get('http://0.0.0.0:5000/edit')
+element = driver.find_element_by_id('key')
+element.send_keys('selenium')
+element = driver.find_element_by_id('value')
+element.send_keys('new')
+element = driver.find_element_by_id('save')
+element.click()
+element = driver.find_element_by_id('result')
+print element.text
+driver.get('http://0.0.0.0:5000/remove')
+element = driver.find_element_by_id('key')
+element.send_keys('selenium')
+element = driver.find_element_by_id('save')
+element.click()
+element = driver.find_element_by_id('result')
+print element.text
+driver.close()
